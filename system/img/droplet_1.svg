@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewbox="0 0 20 20">
+    <defs>
+        <radialGradient id="gradient_light_grey" class="test" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+          <stop offset="0%" style="stop-color:rgb(40,40,40); stop-opacity:0.3" />
+          <stop offset="80%" style="stop-color:rgb(80,80,80); stop-opacity:0.3" />
+          <stop offset="100%" style="stop-color:rgb(120,120,120);stop-opacity:0.3" />
+        </radialGradient>
+
+        <radialGradient id="gradient_dark_grey" class="test" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+          <stop offset="0%" style="stop-color:rgb(40,40,40); stop-opacity:0.7" />
+          <stop offset="80%" style="stop-color:rgb(80,80,80); stop-opacity:0.7" />
+          <stop offset="100%" style="stop-color:rgb(120,120,120);stop-opacity:0.7" />
+        </radialGradient>
+    </defs>
+
+    <path id="droplet_1" fill="url(#gradient_dark_grey)" stroke="none" stroke-width="0.1"
+        d="M 10,0 
+          C 15,9.3 17.3,9.5 17.3,9.5 
+          c 0,0 8.2,9.4 -7.3,10 
+          M 10,0 
+          C 5,9.3 2.7,9.5 2.7,9.5 
+          c 0,0 -8.2,9.4 7.3,10" />
+</svg>

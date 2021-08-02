@@ -1,0 +1,93 @@
+.form-container {
+	max-width: 400px;
+	padding: 10px;
+	background-color: white;
+	text-align: center;
+}
+
+#attrForm h2{
+	margin-top: 10px;
+}
+
+#attrForm .category {
+	display: block;
+	font-size:18px;
+	padding: 5px;
+	font-weight: bold;
+}
+
+#attrForm .sub_cat {
+	vertical-align: top;
+	display: inline-block;
+}
+
+#attrForm #scale_opt .sub_cat{
+	min-width: 135px;
+    text-align: right;
+}
+
+/*#attrForm #fill_opt .sub_cat{
+	min-width: 250px;
+}
+*/
+#attrForm input[type=radio]{
+	margin-left:10px;
+}
+
+#attrForm .opt{
+	padding-bottom: 10px;
+	border: 1px solid;
+	border-bottom: none;
+}
+
+#attrForm .opt.last{
+	border-bottom: 1px solid;
+}
+
+#attrForm table.color_table{
+	border-collapse: collapse;
+	margin: 10px 10px 0 10px;
+	display: none;
+}
+
+#attrForm table.color_table tr th {
+	border: 1px solid;
+	font-weight: bold;
+	padding:4px;
+}
+
+#attrForm table.color_table td{
+	text-align: center;
+	border: 1px solid;
+}
+
+#attrForm table.color_table td input[type="text"]{
+	padding: 2px 4px;
+	width: 40px;
+	text-align: center;
+}
+
+#attrForm input[type=slide]{
+	width: 200px;
+}
+
+#attrForm input[type="number"]{
+	width: 45px;
+	margin-top: -12px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+#attrForm .no-margin{
+	margin-top: 0 !important;
+}
+
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  cursor: pointer;
+  width: 80px;
+  margin: 10px;
+}

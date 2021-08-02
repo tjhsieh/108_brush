@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewbox="0 0 20 20">
+    <defs>
+        <radialGradient id="gradient_light_grey" class="test" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+          <stop offset="0%" style="stop-color:rgb(40,40,40); stop-opacity:0.3" />
+          <stop offset="80%" style="stop-color:rgb(80,80,80); stop-opacity:0.3" />
+          <stop offset="100%" style="stop-color:rgb(120,120,120);stop-opacity:0.3" />
+        </radialGradient>
+
+        <radialGradient id="gradient_dark_grey" class="test" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+          <stop offset="0%" style="stop-color:rgb(40,40,40); stop-opacity:0.7" />
+          <stop offset="80%" style="stop-color:rgb(80,80,80); stop-opacity:0.7" />
+          <stop offset="100%" style="stop-color:rgb(120,120,120);stop-opacity:0.7" />
+        </radialGradient>
+    </defs>
+
+    <path id="droplet_spike" fill="url(#gradient_dark_grey)" stroke="none" stroke-width="0.1" 
+    d="M 18.94036,10.971762 18.498419,0.04948719 17.3,9.5 M 15.973037,8.4463802 V 0.11262172 L 17.3,9.5 M 13.637059,5.7315953 C 13.258252,5.3527881 12.879445,-0.01364735 12.879445,-0.01364735 L 14.836616,6.9311514 M 1.0101525,11.413703 c 0,0 -1.07328703,-10.1646597 -0.8207489,-10.2277942 C 0.44194174,1.1227743 2.7,9.5 2.7,9.5 M 4.8214286,6.6071428 6.376588,0.04948719 6.8816642,4.7845773 M 4.8214286,6.6071428 3.9285714,-0.17857147 4.8214286,6.6071428 M 2.7,9.5 c 0,0 -1.6285714,-9.32142861 -1.45,-9.32142861 0.1785714,0 2.3214286,6.42857141 3.5714286,6.42857141 M 10,0 c 5,9.3 7.300308,9.5 7.3,9.5 0,0 8.2,9.4 -7.3,10 M 10,0 C 5,9.3 2.7,9.5 2.7,9.5 c 0,0 -8.2,9.4 7.3,10" />
+</svg>

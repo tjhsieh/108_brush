@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Droplet</title>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/download.js"></script>
+  <script src="js/lib.js"></script>
+  <script src="js/drawer.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  
+</head>
+
+<body>
+  <div id="func_table">
+    <table class="brush_select_table">
+      <tr class="title">
+        <td colspan=4>Starting Brush:</td>
+      </tr>
+      <tr>
+        <td><img class="first_select brush_select" ref="first" rel="circle" src="img/circle.svg"></td>
+        <td><img class="first_select brush_select" ref="first" rel="droplet_1" src="img/droplet_1.svg"></td>
+        <td><img class="first_select brush_select" ref="first" rel="brush_1" src="img/brush_1.svg"></td>
+        <td><img class="first_select brush_select" ref="first" rel="brush_2" src="img/brush_2.svg"></td>
+      </tr>
+    </table>
+    <table class="brush_select_table">
+      <tr class="title">
+        <td colspan=4>Main Brush:</td>
+      </tr>
+      <tr>
+        <td><img class="mid_select brush_select" ref="mid" rel="circle" src="img/circle.svg"></td>
+        <td><img class="mid_select brush_select" ref="mid" rel="droplet_1" src="img/droplet_1.svg"></td>
+        <td><img class="mid_select brush_select" ref="mid" rel="brush_1" src="img/brush_1.svg"></td>
+        <td><img class="mid_select brush_select" ref="mid" rel="brush_2" src="img/brush_2.svg"></td>
+      </tr>
+    </table>
+    <table class="brush_select_table">
+      <tr class="title">
+        <td colspan=4>Finishing Brush:</td>
+      </tr>
+      <tr>
+        <td><img class="last_select brush_select" ref="last" rel="circle" src="img/circle.svg"></td>
+        <td><img class="last_select brush_select" ref="last" rel="droplet_1" src="img/droplet_1.svg"></td>
+        <td><img class="last_select brush_select" ref="last" rel="brush_1" src="img/brush_1.svg"></td>
+        <td><img class="last_select brush_select" ref="last" rel="brush_2" src="img/brush_2.svg"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="upload_area">
+    <label for="uploader">Upload Starting Brush: </label>
+    <input type="file" class="uploadBrush" rel="first" name="uploader_first" id="uploader_first" accept=".svg">
+    <button class="use_custom" name="use_custom_first" rel="first">Use this</button>
+    <br>
+    <label for="uploader">Upload Main Brush: </label>
+    <input type="file" class="uploadBrush" rel="mid" name="uploader_mid" id="uploader_mid" accept=".svg">
+    <button class="use_custom" name="use_custom_mid" rel="mid">Use this</button>
+    <br>
+    <label for="uploader">Upload Finshing Brush: </label>
+    <input type="file" class="uploadBrush" rel="last" name="uploader_last" id="uploader_last" accept=".svg">
+    <button class="use_custom" name="use_custom_last" rel="last">Use this</button>
+  </div>
+  <div id="mainboard">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="mainSVG" width="800" height="600" viewbox="0 0 800 600" onload="init()">
+  	<!-- <svg width="30%" viewbox="0 0 30 42"> -->
+  		<defs>
+  	    	<radialGradient id="gradient_light_grey" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+              <stop offset="0%" style="stop-color:rgb(40,40,40); stop-opacity:0.3" />
+              <stop offset="80%" style="stop-color:rgb(80,80,80); stop-opacity:0.3" />
+              <stop offset="100%" style="stop-color:rgb(120,120,120);stop-opacity:0.3" />
+  	    	</radialGradient>
+
+          <radialGradient id="gradient_dark_grey" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+              <stop offset="0%" style="stop-color:rgb(40,40,40); stop-opacity:0.7" />
+              <stop offset="80%" style="stop-color:rgb(80,80,80); stop-opacity:0.7" />
+              <stop offset="100%" style="stop-color:rgb(120,120,120);stop-opacity:0.7" />
+          </radialGradient>
+
+          <radialGradient id="user_custom_main_gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+              <stop offset="0%" style="stop-color:rgb(0,0,0); stop-opacity:1" />
+              <stop offset="50%" style="stop-color:rgb(0,0,0); stop-opacity:1" />
+              <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+          </radialGradient>
+
+          <radialGradient id="user_custom_last_gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+              <stop offset="0%" style="stop-color:rgb(0,0,0); stop-opacity:1" />
+              <stop offset="50%" style="stop-color:rgb(0,0,0); stop-opacity:1" />
+              <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
+          </radialGradient>
+
+            <path id="droplet_1" stroke="none" stroke-width="0.1"
+                d="M 10,0 
+                    C 15,9.3 17.3,9.5 17.3,9.5 
+                    c 0,0 8.2,9.4 -7.3,10 
+                    M 10,0 
+                    C 5,9.3 2.7,9.5 2.7,9.5 
+                    c 0,0 -8.2,9.4 7.3,10" />
+
+<!--             <path id="droplet_spike" class="test2" stroke="none" stroke-width="0.1" 
+                d="M 18.94036,10.971762 18.498419,0.04948719 17.3,9.5 M 15.973037,8.4463802 V 0.11262172 
+                L 17.3,9.5 M 13.637059,5.7315953 C 13.258252,5.3527881 12.879445,-0.01364735 12.879445,-0.01364735 L 14.836616,6.9311514 M 1.0101525,11.413703 c 0,0 -1.07328703,-10.1646597 -0.8207489,-10.2277942 C 0.44194174,1.1227743 2.7,9.5 2.7,9.5 M 4.8214286,6.6071428 6.376588,0.04948719 6.8816642,4.7845773 M 4.8214286,6.6071428 3.9285714,-0.17857147 4.8214286,6.6071428 M 2.7,9.5 c 0,0 -1.6285714,-9.32142861 -1.45,-9.32142861 0.1785714,0 2.3214286,6.42857141 3.5714286,6.42857141 M 10,0 c 5,9.3 7.300308,9.5 7.3,9.5 0,0 8.2,9.4 -7.3,10 M 10,0 C 5,9.3 2.7,9.5 2.7,9.5 c 0,0 -8.2,9.4 7.3,10" />
+ -->
+            <path id="brush_1" stroke="none" stroke-width="0.1"
+                d="m0.2 3.3c0 0.3 0.3 1.1 0.6 1.7
+                    C1 5.7 1.2 6.4 1.2 6.5 1.1 6.6 1.2 6.8 1.6 6.9 2.2 7 2.3 6.9 2.1 6.2 1.9 5.5 2.1 5.6 2.5 6.4 2.6 6.7 2.8 7 2.9 6.9 3.1 6.8 3.5 5.9 3.4 5.7 3.4 5.5 3.4 5.3 3.4 5.1 3.5 4.9 3.5 4.6 3.5 4.4 3.5 4.2 3.5 3.9 3.6 3.7 3.7 3.5 3.8 3.6 4 3.9L4.2 4.4 4.6 3.6C5 3.1 5 2.8 4.9 2.2 4.9 1.9 4.8 1.2 4.8 0.8L4.8 0 5.1 0.4C5.3 0.6 5.5 0.9 5.5 1.1 5.5 1.2 5.7 1.4 5.9 1.6 6.1 1.7 6.3 2.2 6.4 2.6 6.5 3.2 6.6 3.3 6.8 3.1 7 3 7.1 3 7.3 3.1 7.4 3.2 7.5 3.2 7.6 2.9 7.6 2.3 7.9 2.7 7.8 3.3 7.8 3.9 8.1 4.2 8.2 3.7 8.2 3.4 8.5 3.4 8.5 3.7 8.6 4 9.8 4.6 10 4.5 10.4 4.2 10.5 3.2 10.3 2.2 10.1 1.3 10.2 0.2 10.4 0.3c0.2 0.1 0.9 1.7 0.8 2.1 0 0.3 0.1 0.4 0.5 0.5 0.1 0 0.1 0.1 0 0.1-0.1 0.1-0.1 0.3 0.1 0.6 0.3 0.5 0.4 0.6 0.5 0.3 0.1-0.3 0.7-0.1 0.9 0.2 0.1 0.1 0.2 1 0.2 1.9 0 1.7 0.1 2.1 0.5 2.5 0.1 0.1 0.3 0.4 0.3 0.6 0 0.2 0.1 0.6 0.2 0.8 0.1 0.3 0.2 0.5 0.1 0.6-0.1 0.1 0 0.4 0 0.8 0.1 0.3 0.1 0.8 0.1 1.1 0 0.3 0 0.5 0.1 0.5 0.2-0.1 0.3-1.3 0.2-2.7 0-0.7 0-1.3 0-1.4 0.1-0.2 0.7-0.1 0.8 0.2 0.1 0.2 0.2 0.3 0.5 0.2 0.3-0.1 0.3 0 0.4 0.3 0 0.2 0 0.6 0 0.8 0 0.2 0.1 0.6 0.2 1 0.1 0.4 0.2 0.6 0.1 0.6-0.1 0 0 0.1 0.1 0.2 0.1 0.1 0.1 0.3 0 0.4-0.1 0.1-0.1 0.3 0 0.6 0.2 0.5 0.3 2.7 0.1 3.1-0.1 0.1 0 0.3 0 0.5 0.1 0.1 0.1 0.5 0.1 0.8 0 0.3 0 0.5 0.1 0.5 0.3-0.1 0.1 0.7-0.3 1.1-0.4 0.4-1.5 0.5-3.6 0.4-0.9 0-1.7 0-1.9 0-0.5 0.2-0.8 0.1-1.3-0.5-0.6-0.7-1.9-1.1-2.6-0.8-0.3 0.1-0.6 0.2-0.6 0.1 0-0.1-0.5 0-1 0.1-0.5 0.1-1 0.1-1 0 0-0.1-0.8-0.6-1.2-0.8-0.1 0-0.4-0.2-0.7-0.4-0.7-0.5-0.9-0.5-1-0.2-0.1 0.2-0.2 0.2-0.4 0.1-0.1-0.1-0.4-0.3-0.5-0.4-0.3-0.2-0.3-0.1-0.2 0.1 0.1 0.4-0.1 0.5-0.7 0.3-0.4-0.1-0.5-0.3-0.4-1 0-0.9 0.3-3.6 0.5-4.5 0.1-0.3 0-1.1-0.1-1.7-0.1-0.6-0.2-1.3-0.1-1.3 0-0.1 0-0.8-0.2-1.6-0.2-0.8-0.2-1.6-0.1-1.8 0.1-0.2 0.1-0.4 0.1-0.4-0.2 0-0.3-1.3-0.2-1.5 0-0.1 0.1 0.1 0.1 0.4zM1.1 7.3C1.2 7.5 1.2 7.5 1.2 7.2 1.3 7.1 1.2 6.9 1.1 6.9 0.9 6.9 0.9 7 1.1 7.3ZM13.8 8.9C14 9.2 14 9.2 13.9 8.9 13.8 8.5 13.7 8.4 13.7 8.5c0 0 0.1 0.2 0.2 0.4zm1.6 0.7c0.1 0.4 0.2 0.6 0.2 0.5 0.1-0.2 0-1.3-0.2-1.4-0.2-0.1-0.2 0.3-0.1 0.9zM0.7 2.9c0 0.4 0 0.7-0.1 0.9-0.1 0.1-0.1-0.1-0.1-0.5 0-0.9 0.2-1.2 0.2-0.4zM14 6.9c0.1 0.1 0.1 0.3 0 0.3-0.1 0-0.1-0.1-0.1-0.3 0-0.2 0.1-0.3 0.1-0.1zm5.4 3.2c0.2 0.2 0.2 1.6 0.1 1.7-0.1 0-0.1-0.4-0.2-0.9 0-0.5 0-0.9 0.1-0.8zm0.3 2.7c0.1 0.4 0.1 0.7 0.1 0.8 0 0.1-0.2-0.1-0.2-0.5-0.1-0.4-0.1-0.7-0.1-0.8 0-0.1 0.2 0.1 0.2 0.5zm-1.8 4.3c0 0.1-0.1 0.3-0.2 0.3-0.1 0-0.1-0.1 0-0.2 0.1-0.2 0.2-0.2 0.2-0.1zm2-2.9c0.1 0.3 0.1 0.5 0.1 0.6-0.1 0.3-0.2 0.1-0.2-0.5l0-0.6zm0 0.9c0.2 0 0.2 2 0.1 2.3-0.1 0.2-0.1 0.4-0.1 0.5 0.1 0.2-0.2 2-0.3 2.1-0.3 0.1-0.8-0.4-0.6-0.7 0.4-0.7 0.8-2.6 0.7-3.2-0.1-0.6 0-1 0.2-0.9z" />
+
+              <path id="brush_2" d="m12.6 0c0.4 0.2 2.9 4.7 2.9 5.1 0 0.1 0.2 0.2 0.5 0.2 0.3 0 0.3-0.6 0.2-1.3-0.2-0.7-0.1-1.2 0.2-1.2 0.3 0 0.5-0.6 0.4-1.2-0.4-2.6 1.2-0.3 2.3 3.3 1.2 4 1.3 6.9 0.4 9.6-0.5 1.7-0.8 2-2.3 3.4-1 0.9-4.1 2-6.1 2C9.4 20 7.5 19.4 7.2 18.6 6.9 18 5 17 3.7 16.9 2.5 16.8 1.5 15.8 1 14.5 0.9 14 0.5 13.4 0.3 13.3-0.7 12.6 0.9 10.6 4.1 8.7 5.2 8.1 5.9 7.8 6.3 7.9 7 8.1 11.2 3.6 11.1 2.8 11 2.5 11.2 2.4 11.7 2.5c0.8 0.1 0.8 0 0.8-1.6 0-0.5 0-0.9 0.1-0.9z" stroke-width="0.3" stroke="none" />
+
+            <circle id="circle" cx="10" cy="10" r="10" stroke="none" />
+            <circle id="circle_red" cx="10" cy="10" r="10" fill="red" opacity="0.05" stroke="none" />
+  	  	</defs>
+
+        <g id="drawboard" class="board">
+        </g>
+
+<!--   	  	<g id="sample_group" class="sample_group">
+            <use id="droplet_sample" class="sample" xlink:href="#droplet2" x="0" y="0"/>
+            <use id="circle_sample" class="sample" xlink:href="#circle" x="0" y="0"/>
+            <use id="droplet1_sample" class="sample" xlink:href="#droplet1" x="0" y="0" />
+            <use id="droplet_spike_sample" class="sample" xlink:href="#droplet_spike" x="0" y="0" />
+            <use id="brush_1_sample" class="sample" xlink:href="#brush_1" x="0" y="0" />
+        </g>
+ -->
+  	</svg>
+  </div>
+  <div id="func_btn">
+      <input type="button" class="btn" id="dl_btn" value="Download" />
+      <input type="button" class="btn" id="clear_btn" value="Clear" />
+  </div>
+  <div id="output"></div>
+  <div id="upload_loader"></div>
+  <button class="open-button btn" onclick="openForm()">Attributes</button>
+  <div class="form-popup" id="formPop">
+  </div>
+
+</body>
+<script type="text/javascript">
+    //DELETED CODE IN 0719 VER
+    var custom_brush_index = {first: 0, mid: 0, last: 0};
+
+    $("#formPop").load("pop_up_form.html");
+
+    function openForm() {
+      $("#formPop").show();
+    }
+
+    function closeForm() {
+      $("#formPop").hide();
+    }
+
+    $("#dl_btn").click(function(){
+        saveSVG($("#mainSVG"));
+    });
+
+    $("#clear_btn").click(function(){
+        erase($("#drawboard"));
+    });
+
+    $(".brush_select").click(function(){
+        brushSelect( $(this).attr('ref'), $(this).attr('rel') );
+    });
+
+    $(".uploadBrush").change(function(){
+        if (!this.files[0]){
+
+        }else{
+            var brushType = $(this).attr('rel');
+            var reader = new FileReader();
+            var this_brush_id = custom_brush_id + "_" + brushType + "_" + custom_brush_index[brushType]++;
+            reader.onload = function(evt) {
+                if(evt.target.readyState != 2) return;
+                if(evt.target.error) {
+                    alert('Error while reading file');
+                    return;
+                }
+
+                filecontent = evt.target.result;
+                $("#upload_loader").html(evt.target.result);
+                var d = $("#upload_loader path").first().attr('d');
+                var newBrush = '<path id="'+ this_brush_id +'" stroke="none" stroke-width="0.1" d="'+ d +'" />';
+                $("#mainboard defs").append(newBrush);
+                $("#mainboard defs").html($("#mainboard defs").html());
+                brushSelect(brushType, this_brush_id);
+                $("#upload_loader").empty();
+            };
+            reader.readAsText(this.files[0]);
+        }
+    });
+
+    $(".use_custom").click(function(){
+        var brushType = $(this).attr('rel');
+        if (custom_brush_index[brushType]>0){
+            var this_brush_id = custom_brush_id + "_" + brushType + "_" + (custom_brush_index[brushType]-1);
+            console.log(this_brush_id);
+            brushSelect(brushType, this_brush_id);
+        }
+    });
+
+
+
+</script>
+
+</html>

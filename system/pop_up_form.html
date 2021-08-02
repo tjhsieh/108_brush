@@ -1,0 +1,120 @@
+<link rel="stylesheet" href="css/form.css">
+
+<div class="form-container" id="attrForm">
+    <h2>Attributes</h3>
+
+    <div class="opt">
+	    <label class="category">Main Brush</label>
+	  	<input type="radio" name="main_color" value="black" >Black
+	  	<input type="radio" name="main_color" value="url(#gradient_light_grey)" checked>Light grey
+	  	<input type="radio" name="main_color" value="url(#gradient_dark_grey)" >Dark Grey
+	  	<input type="radio" name="main_color" value="custom" rel="#user_custom_main_gradient" >Custom <br>
+	    <table class="color_table" id="main_color_table">
+	    	<tr>
+	    		<th>Diffuse at(%)</th>
+	    		<th>R</th>
+	    		<th>G</th>
+	    		<th>B</th>
+	    		<th>Opacity</th>
+	    	</tr>
+	    	<tr>
+	    		<td><input type="text" name="main_dif_1" value="0"></td>
+	    		<td><input type="text" name="main_r_1" value="40"></td>
+	    		<td><input type="text" name="main_g_1" value="40"></td>
+	    		<td><input type="text" name="main_b_1" value="40"></td>
+	    		<td><input type="text" name="main_opac_1" value="0.3"></td>
+	    	</tr>
+	    	<tr>
+	    		<td><input type="text" name="main_dif_2" value="80"></td>
+	    		<td><input type="text" name="main_r_2" value="40"></td>
+	    		<td><input type="text" name="main_g_2" value="40"></td>
+	    		<td><input type="text" name="main_b_2" value="40"></td>
+	    		<td><input type="text" name="main_opac_2" value="0.3"></td>
+	    	</tr>
+	    	<tr>
+	    		<td><input type="text" name="main_dif_3" value="100"></td>
+	    		<td><input type="text" name="main_r_3" value="120"></td>
+	    		<td><input type="text" name="main_g_3" value="120"></td>
+	    		<td><input type="text" name="main_b_3" value="120"></td>
+	    		<td><input type="text" name="main_opac_3" value="0.3"></td>
+	    	</tr>
+	    </table>
+    </div>
+
+    <div class="opt">
+	    <label class="category">Finishing Brush</label>    
+	  	<input type="radio" name="last_color" value="black">Black
+	  	<input type="radio" name="last_color" value="url(#gradient_light_grey)"  >Light grey
+	  	<input type="radio" name="last_color" value="url(#gradient_dark_grey)" checked>Dark Grey
+	  	<input type="radio" name="last_color" value="custom" rel="#user_custom_last_gradient">Custom <br>
+	    <table class="color_table" id="last_color_table">
+	    	<tr>
+	    		<th>Diffuse at(%)</th>
+	    		<th>R</th>
+	    		<th>G</th>
+	    		<th>B</th>
+	    		<th>Opacity</th>
+	    	</tr>
+	    	<tr>
+	    		<td><input type="text" name="last_dif_1" value="0"></td>
+	    		<td><input type="text" name="last_r_1" value="40"></td>
+	    		<td><input type="text" name="last_g_1" value="40"></td>
+	    		<td><input type="text" name="last_b_1" value="40"></td>
+	    		<td><input type="text" name="last_opac_1" value="0.7"></td>
+	    	</tr>
+	    	<tr>
+	    		<td><input type="text" name="last_dif_2" value="80"></td>
+	    		<td><input type="text" name="last_r_2" value="40"></td>
+	    		<td><input type="text" name="last_g_2" value="40"></td>
+	    		<td><input type="text" name="last_b_2" value="40"></td>
+	    		<td><input type="text" name="last_opac_2" value="0.7"></td>
+	    	</tr>
+	    	<tr>
+	    		<td><input type="text" name="last_dif_3" value="100"></td>
+	    		<td><input type="text" name="last_r_3" value="120"></td>
+	    		<td><input type="text" name="last_g_3" value="120"></td>
+	    		<td><input type="text" name="last_b_3" value="120"></td>
+	    		<td><input type="text" name="last_opac_3" value="0.7"></td>
+	    	</tr>
+	    </table>
+    </div>
+
+    <div class="opt">
+    	<label class="category">Base Width</label>    
+  		<input class="slider_gp" rel="width" id="w_slide" type="range" min=1 max=50 value=10>
+  		<input class="slider_gp" rel="width" name="width" id="w_text" type="number" min=1 max=50 value=10 />
+	</div>
+
+    <div class="opt">
+    	<label class="category">Default Angle (0 towards top, clockwise)</label>    
+  		<input name="def_angle" class="no-margin" id="base_angle" type="number" min=0 max=360 value=180 />
+	</div>
+
+    <div class="opt" id="scale_opt">
+    	<label class="category">Scale Increase/Decrease Control</label> 
+    	<label class="sub_cat">Decrease Condition:</label> 
+  		<input class="slider_gp" rel="scale_dec_cond" id="scale_dec_con_slide" type="range" min=1 max=20 value=6>
+  		<input class="slider_gp" rel="scale_dec_cond" name="scale_dec_cond" id="scale_dec_con_text" type="number" min=1 max=20 value=6 /><br>
+    	<label class="sub_cat">Decrease Speed:</label> 
+  		<input class="slider_gp" rel="scale_dec_rate" id="scale_dec_rate_slide" type="range" min=0 max=1 step=0.01 value=0.02>
+  		<input class="slider_gp" rel="scale_dec_rate" name="scale_dec_rate" id="scale_dec_rate_text" type="number" min=0 max=1 step=0.01 value=0.02 /><br>
+  		<label class="sub_cat">Increase Speed:</label>	 
+  		<input class="slider_gp" rel="scale_inc_rate" id="scale_inc_rate_slide" type="range" min="0" max="1" step="0.01" value="0.02">
+  		<input class="slider_gp" rel="scale_inc_rate" name="scale_inc_rate" id="scale_inc_rate_text" type="number" min=0 max=1 step=0.01 value=0.02 />
+	</div>
+
+    <div class="opt last" id="fill_opt">
+    	<label class="category">Auto Fill Control<br></label>    
+		<label class="sub_cat">Gap Tolerance:</label> 
+		<input name="distToFill" class="no-margin" id="distToFill" type="number" min=5 max=100 value=15 />
+		<label class="sub_cat">Looseness (higher number less fill):</label> 
+		<input name="t_increment" class="no-margin" id="t_increment" type="number" min=0.01 max=1 step=0.05 value=0.2 />
+	</div>
+
+	<div class="btn_area">
+	    <button type="button" id="applyBtn" class="btn" onclick="submitForm()">Apply</button>
+	    <button type="button" id="cancelBtn" class="btn cancel" onclick="closeForm()">Close</button>
+	</div>
+</div>
+
+<script src="js/form.js"></script>
